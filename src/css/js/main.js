@@ -34,3 +34,23 @@ function count() {
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('button').onclick = count;
 });
+
+we can alter our script above to use an anonymous arrow function:
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('button').forEach(button => {
+        button.onclick = () => {
+            document.querySelector("#hello").style.color = button.dataset.color;
+        }
+    });
+});
+//We can also have named functions that use arrows, as in this rewriting of the count function:
+
+count = () => {
+    counter++;
+    document.querySelector('h1').innerHTML = counter;
+    
+    if (counter % 10 === 0) {
+        alert(`Count is now ${counter}`)
+    }
+}
